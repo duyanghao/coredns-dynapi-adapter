@@ -1,13 +1,13 @@
 coredns-dynapi-adapter
 ===================
 
-coredns-dynapi-adapter is a coredns dynamic apiserver which is implemented based on [GinAPIServer](https://github.com/duyanghao/GinAPIServer).
+coredns-dynapi-adapter is a coredns dynamic middleware apiserver adapter which is implemented based on [GinAPIServer](https://github.com/duyanghao/GinAPIServer).
 
 ## Introduction
 
 Currently coredns doesn't support dynamic domain CRUD APIs, which is urgently needed in a constantly changing environment of domains.
 
-To solve this, coredns-dynapi-adapter, acts as a middleware adapter, helps users to manage coredns by providing some general useful CRUD APIs.
+To solve this, coredns-dynapi-adapter, acts as a middleware adapter, helps users to manage coredns by providing some commonly used CRUD APIs.
 
 ## Run
 
