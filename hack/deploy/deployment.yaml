@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coredns-dynapi-adapter
+  labels:
+    app: coredns-dynapi-adapter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coredns-dynapi-adapter
+  template:
+    metadata:
+      labels:
+        app: coredns-dynapi-adapter
+    spec:
+      containers:
+        - name: coredns-dynapi-adapter
+          image: REPLACE_IMAGE
+          ports:
+            - containerPort: 8081

@@ -1,0 +1,162 @@
+basePath: /api/v1
+definitions:
+  models.DomainInfo:
+    properties:
+      domain:
+        type: string
+      ip:
+        type: string
+    type: object
+  models.DomainInfoList:
+    properties:
+      domainInfos:
+        items:
+          $ref: '#/definitions/models.DomainInfo'
+        type: array
+    type: object
+  models.NodeInfo:
+    properties:
+      address:
+        type: string
+      password:
+        type: string
+      port:
+        type: integer
+      username:
+        type: string
+    type: object
+  models.NodeInfoList:
+    properties:
+      nodeInfos:
+        items:
+          $ref: '#/definitions/models.NodeInfo'
+        type: array
+    type: object
+  models.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      message:
+        type: string
+    type: object
+host: '{{.Host}}'
+info:
+  contact:
+    email: 1294057873@qq.com
+    name: duyanghao
+    url: https://duyanghao.github.io
+  description: This is a coredns-dynapi-adapter.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Swagger coredns-dynapi-adapter
+  version: 0.1.0
+paths:
+  /domain:
+    post:
+      description: AddDomain
+      parameters:
+      - description: Domain info list you want to add to coredns.
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.DomainInfoList'
+          type: object
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+      summary: AddDomain
+  /node:
+    get:
+      description: GetNode
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+      summary: GetNode
+    post:
+      description: RegisterNode
+      parameters:
+      - description: Node info list you want to register.
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.NodeInfoList'
+          type: object
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Response'
+            type: object
+      summary: RegisterNode
+swagger: "2.0"
